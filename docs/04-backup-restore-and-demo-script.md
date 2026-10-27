@@ -111,7 +111,7 @@ When transitioning the system from local workstations to cloud hosting:
 - **Opening Statement:**
   > *"Good morning, esteemed panel. Today we present the Classical Dance Academy Management System—a full-stack enterprise platform engineered for classical performing arts institutions."*
 - **Key Points to Highlight:**
-  - **Modular Monolith Backend:** Developed in Java 21 with Spring Boot 3.x, avoiding microservice network overhead while maintaining clean internal domain boundaries.
+  - **Modular Monolith Backend:** Developed in Java 25 (LTS) with Spring Boot 3.5.x, avoiding microservice network overhead while maintaining clean internal domain boundaries.
   - **Tri-Portal Architecture:** 3 dedicated Angular SPAs customized for distinct user experiences:
     1. Public Academy Website (port `:4200`)
     2. Student Self-Service Portal (port `:4201`)
@@ -163,4 +163,3 @@ When transitioning the system from local workstations to cloud hosting:
 | **Why use Flyway instead of JPA's `ddl-auto=update`?** | `ddl-auto=update` is non-deterministic, hazardous in production, and does not maintain an auditable migration history. Flyway enforces reproducible, version-controlled SQL files (`V1`, `V2`) ensuring complete parity between local development and cloud deployments. |
 | **How are passwords stored securely?** | Passwords are never stored in plaintext. They are salted and hashed using Spring Security's `BCryptPasswordEncoder` with a cost factor of 12, resisting offline rainbow table and dictionary attacks. |
 | **How does the system ensure zero false form submissions?** | Frontends utilize reactive Angular form controls with real-time validators, and submission state transitions are tied strictly to HTTP 200/201 response receipts from the backend API. |
-

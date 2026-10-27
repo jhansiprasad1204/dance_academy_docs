@@ -6,7 +6,7 @@ A production-grade, modular-monolith management platform and digital portal suit
 
 ## 1. System Architecture Overview
 
-The system consists of **3 distinct Angular 17/18+ Single Page Applications (SPAs)** communicating with **1 shared Java 21 + Spring Boot 3.x REST API** backed by **MySQL 8.0** with Flyway database migrations.
+The system consists of **3 distinct Angular 17/18+ Single Page Applications (SPAs)** communicating with **1 shared Java 25 (LTS) + Spring Boot 3.5.x REST API** backed by **MySQL 8.0** with Flyway database migrations.
 
 ```
                            +----------------------------------------+
@@ -45,7 +45,7 @@ The system consists of **3 distinct Angular 17/18+ Single Page Applications (SPA
 | Repository | Tech Stack | Local Port | Scope & Responsibility |
 |:---|:---|:---|:---|
 | **`dance-academy-docs`** | Markdown / Mermaid | N/A | Central architecture specifications, RBAC matrix, 20-table ER design, REST API contract, QA plans, and viva presentation scripts. |
-| **`dance-academy-api`** | Java 21, Spring Boot 3.x, Maven, Flyway, MySQL | `:8080` | Shared backend modular monolith: Spring Security 6 stateless JWT, REST endpoints, RFC 7807 problem details, StorageService, and AuditLogService. |
+| **`dance-academy-api`** | Java 25 (LTS), Spring Boot 3.5.x, Maven, Flyway, MySQL | `:8080` | Shared backend modular monolith: Spring Security 6 stateless JWT, REST endpoints, RFC 7807 problem details, StorageService, and AuditLogService. |
 | **`dance-academy-public`** | Angular 17/18+ (Standalone, SCSS) | `:4200` | Unauthenticated public website with temple-gold/deep-maroon aesthetic, 16:9 hero, styles catalog, faculty, gallery, events, moderated reviews, and admission enquiries. |
 | **`dance-academy-student`** | Angular 17/18+ (Standalone, SCSS) | `:4201` | Authenticated student portal (`ROLE_STUDENT`): dashboard KPIs, profile, class schedules, attendance logs, secure blob certificate downloads, and announcements. |
 | **`dance-academy-admin`** | Angular 17/18+ (Standalone, SCSS) | `:4202` | Authenticated management portal (`ROLE_SUPER_ADMIN`, `ROLE_ACADEMY_ADMIN`, `ROLE_INSTRUCTOR`): 16 operational modules, attendance marking, certificate generation, CMS, review moderation, and CSV reports. |
@@ -59,7 +59,7 @@ Ensure the following runtimes and CLI tools are installed on development machine
 
 | Prerequisite | Minimum Supported Version | Verification Command | Notes / Purpose |
 |:---|:---|:---|:---|
-| **Java Development Kit (JDK)** | OpenJDK / Eclipse Temurin 21 (LTS) | `java -version` | Core backend runtime |
+| **Java Development Kit (JDK)** | OpenJDK / Eclipse Temurin 25 (LTS) | `java -version` | Core backend runtime |
 | **Apache Maven** | 3.9.x+ | `mvn -version` | Java dependency management & builds |
 | **Node.js & npm** | Node.js 20.x+ LTS / npm 10.x+ | `node -v` && `npm -v` | Angular toolchain runtime |
 | **Angular CLI** | 17.x or 18.x | `ng version` | SPA scaffolding, serving, and testing |
@@ -115,4 +115,3 @@ Commit messages must adhere strictly to conventional commit syntax:
 4. **Phase 9–10 (Student Portal)**: Scaffold and complete `dance-academy-student` on port `4201`, enforcing student ID data isolation.
 5. **Phase 11–13 (Admin Portal & Platform)**: Scaffold `dance-academy-admin` on port `4202`, implement 16 operational modules, and configure `dance-academy-platform` with Docker Compose.
 6. **Phase 14 (Verification & Viva)**: Execute end-to-end automated smoke tests (`verify-e2e.sh`), audit security boundaries, and rehearse viva demonstration script.
-
